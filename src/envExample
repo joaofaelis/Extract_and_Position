@@ -1,0 +1,9 @@
+#criar o arquivo ".env" e colocar dentro dele as seguintes configs:
+
+-- Mongo Connection --
+uri = "" #Colocar a Uri do MongoDB
+db_name = "" #Colocar o nome do banco de dados
+db_collection = "" #Colocar o nome da collection
+
+--Excel configs--
+book = "" #Colocar o nome do arquivo .xls
