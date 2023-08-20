@@ -1,16 +1,17 @@
-from src.service.ExcelService.Service import services
-from src.service.service import Service
+from src.service.ExcelService.Service import ServicesOpenPyXl
+from src.service.Services_Interface.service import ServiceInterface
+from decouple import config
 import openpyxl
 
-book = openpyxl.load_workbook('sistemas2.xlsx', data_only=True)
+book = openpyxl.load_workbook(config(''), data_only=True)
 while True:
 
     print(
         """
-    [1] - Inserir Sistema ao MONGODB.
-    [2] - Update.
-    [3] - Delete.
-    [4] - Start Excel Service.
+    [1] - Inserir novo sistema ao Banco de Dados.
+    [2] - Update em sistema ou dependência já existente.
+    [3] - Deletar um Sistema.
+    [4] - Start em automatização no arquivo .XLS.
     [0] - EXIT.
     """
     )
@@ -23,17 +24,17 @@ while True:
             break
 
         elif option == 1:
-            Service.create_data()
+            ServiceInterface.create_interface()
             print("Sucess.")
 
         elif option == 2:
-            Service.update_one()
+            ServiceInterface.update_one()
 
         elif option == 3:
-            Service.delete_onee()
+            ServiceInterface.delete_one()
 
         elif option == 4:
-            services.insert_plan()
+            ServicesOpenPyXl.insert_data_plan()
 
     except:
         print("Option Invalid.")
